@@ -1,108 +1,115 @@
+/* Variables for colors and gradients */
 :root {
   --primary-color: #00b894;
   --secondary-color: #098466;
   --text-color: #ffffff;
   --input-background: #00997a;
   --placeholder-color: #b0ddcd;
+  --gradient-start: #00b894;
+  --gradient-end: #098466;
 }
 
+/* Global styles for the body */
 body {
-  background-color: #f2fff2;
+  background-color: #f7f9fc;
   margin: 0;
   padding: 0;
+  font-family: 'Roboto', sans-serif;
 }
-.results {
-  margin-left: 10px;
-  color: black;
-  text-align: left;
-}
+
+/* Navbar styles */
 .navbar {
-  background-color: var(--primary-color);
-  height: 50px;
+  background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
+/* Flex containers for navbar and search */
+.navbar-container,
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Styles for navbar logo and items */
+.navbar-logo,
+.navbar-item {
+  color: var(--text-color);
+  text-decoration: none;
+  margin-right: 15px;
+  transition: color 0.3s;
+}
+
+/* Specific styles for navbar logo */
+.navbar-logo {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+/* Styles for navbar items */
+.navbar-item {
+  padding: 12px;
+  font-size: 18px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+/* Hover effect for navbar items */
+.navbar-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Spacing for navbar buttons */
 .navbar-buttons {
   margin-right: 50px;
 }
 
-.navbar-logo {
-  color: var(--text-color);
-  text-decoration: none;
-  font-size: 20px;
-}
-
-.navbar-container {
-  display: flex;
-  align-items: center;
-}
-
-.navbar-item {
-  color: var(--text-color);
-  text-decoration: none;
-  padding: 10px;
-  font-size: 18px;
-  margin-right: 10px;
-  margin-bottom: 2px;
-}
-
-.navbar-item:hover {
-  background-color: var(--secondary-color);
-}
-.post {
-  margin-top: 15px;
-  margin-left: 10px;
-  margin-right: 10px;
-  flex: 0 0 calc(15% - 20px); /* Each post occupies 33.33% of the container width with a gap of 20px */
-  display: flex; /* Set the display to flex to keep the post content together */
-  flex-direction: column; /* Stack post content vertically */
-  justify-content: space-between; /* Add space between post content */
-  padding: 10px;
-  background-color: #f2f2f2;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  text-align: center;
-}
-.navbar-login {
-  background-color: var(--secondary-color);
-  border-radius: 5px;
-  /* margin-left: 5px; */
-}
+/* Styles for login and sign-up buttons in navbar */
+.navbar-login,
 .navbar-sign-up {
-  background-color: var(--secondary-color);
-  border-radius: 5px;
-  margin-left: 5px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
 }
 
-.search-container {
-  display: inline-block;
-  margin-left: 20px;
+/* Hover effects for login and sign-up buttons */
+.navbar-login:hover,
+.navbar-sign-up:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
+/* Styles for the search input */
 #search-input {
   flex: 1;
   width: 290px;
-  height: 30px;
-  padding: 5px;
-  border: none;
-  border-radius: 5px;
-  margin-right: 10px;
-  margin-bottom: 2px;
-  padding-left: 40px;
+  height: 35px;
+  padding: 5px 5px 5px 45px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
   background-color: var(--input-background);
   color: var(--text-color);
+  transition: border 0.3s;
 }
 
+/* Placeholder color for the search input */
 #search-input::placeholder {
   color: var(--placeholder-color);
 }
 
+/* Focus effect for the search input */
+#search-input:focus {
+  border: 1px solid var(--text-color);
+}
+
+/* Styles for the search button (magnifying glass) */
 #search-button {
-  display: inline-block;
-  margin-left: -91%;
+  position: absolute;
+  top: 20px;
+  margin-left: -40px;
   vertical-align: middle;
   width: 20px;
   height: 20px;
@@ -110,57 +117,86 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   border: none;
-}
-
-#search-button:hover {
   cursor: pointer;
 }
 
+/* Styles for individual posts */
+.post {
+  margin: 20px;
+  flex: 0 0 calc(15% - 20px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover effect for posts */
+.post:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for the results section */
+.results {
+  margin-left: 15px;
+  color: #333;
+  text-align: left;
+}
+
+/* Styles for the post button */
 .post-button {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #00b894; /* You can adjust the color */
-  color: #ffffff;
-  width: 60px;
-  height: 60px;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+  color: var(--text-color);
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
-  font-size: 30px;
+  font-size: 32px;
   text-align: center;
-  line-height: 60px;
+  line-height: 70px;
   text-decoration: none;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow effect */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
+/* Hover effect for the post button */
 .post-button:hover {
-  background-color: #098466; /* You can adjust the color */
-  cursor: pointer;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
-/* Style for the sections container */
+/* Styles for the sections container */
 .sections-container {
   display: flex;
-  overflow-x: hidden; /* Hide horizontal scroll bar */
-  scroll-snap-type: x mandatory; /* Enable snapping to sections */
-  scroll-behavior: smooth; /* Smooth scrolling behavior */
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
 }
 
+/* Styles for individual sections */
 .section {
-  flex: 0 0 100%; /* Each section occupies full width */
-  scroll-snap-align: start; /* Snap sections to start */
-  padding: 20px;
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  padding: 30px;
 }
 
+/* Styles for the posts container */
 .posts {
   display: flex;
-  gap: 20px; /* Adjust the gap between posts */
+  gap: 25px;
   overflow-x: auto;
-  scroll-snap-type: x mandatory; /* Enable snapping to posts */
-  scroll-behavior: smooth; /* Smooth scrolling behavior */
-  margin-left: 10px;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  margin-left: 15px;
 }
 
-/* Style for the scroll buttons */
+/* Styles for the scroll buttons */
 .scroll-button {
   position: absolute;
   top: 30%;
@@ -169,23 +205,17 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   color: #ffffff;
-  background-color: #00b894;
-  opacity: 0.7;
-  border-radius: 50%; /* Make the button circular */
-  font-size: 18px; /* Adjust the arrow icon size */
+  background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+  opacity: 0.8;
+  border-radius: 50%;
+  font-size: 20px;
+  transition: opacity 0.3s;
 }
 
-.scroll-button.left {
-  left: 10px;
-}
-
-.scroll-button.right {
-  right: 10px;
-}
-
+/* Hover effect for the scroll buttons */
 .scroll-button:hover {
   opacity: 1;
 }

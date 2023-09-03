@@ -12,7 +12,7 @@ const App = () => {
     <div>
       <Navbar searchQuery={searchQuery} onSearchQueryChange={setSearchQuery} />
       <Posts searchQuery={searchQuery} />
-      {/* <! -- <LoginForm /> a--> */}
+      {/* <LoginForm /> */}
       <AboutUs />
     </div>
   );
